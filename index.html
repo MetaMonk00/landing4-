@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GrowWise | Free Consultation</title>
+<meta name="description" content="Book a free 30-minute discovery call. We'll audit your digital presence, map your growth gaps, and hand you a custom action plan — no pitch, no pressure.">
+<meta property="og:title" content="Free Growth Audit — GrowWise">
+<meta property="og:description" content="See exactly where your business is losing leads and what it would take to fix it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+@keyframes shimmer{to{background-position:200% center;}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,140,0,.8)}50%{box-shadow:0 0 0 10px rgba(255,140,0,0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+:root{
+  --orange:#FF8C00;
+  --gold:#FFD700;
+  --dark:#080808;
+  --card:#111;
+  --card2:#161616;
+  --muted:#555;
+  --muted2:#888;
+  --white:#fff;
+  --green:#22c55e;
+  --red:#ef4444;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+
+/* ── CUSTOM CURSOR ── */
+@media(hover:hover){
+  #cursor{position:fixed;width:12px;height:12px;background:var(--orange);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .18s,height .18s;mix-blend-mode:screen;}
+  #cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid rgba(255,140,0,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .25s,height .25s;}
+}
+@media(hover:none){#cursor,#cursor-ring{display:none;}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:rgba(8,8,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,140,0,.12);transition:.35s;}
+nav.scrolled{background:rgba(8,8,8,.99);border-bottom-color:rgba(255,140,0,.28);box-shadow:0 4px 40px rgba(0,0,0,.9);}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:1.2rem;letter-spacing:-.5px;}
+.nav-logo span{color:var(--orange);}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.nav-phone{display:none;color:rgba(255,255,255,.55);font-size:.72rem;font-weight:500;}
+.nav-cta{color:var(--orange);border:1.5px solid rgba(255,140,0,.7);padding:7px 14px;border-radius:50px;font-weight:700;font-size:.62rem;white-space:nowrap;transition:.25s;}
+.nav-cta:hover{background:var(--orange);color:#000;}
+
+/* ── HERO ── */
+.hero{position:relative;padding:56px 24px 52px;overflow:hidden;min-height:90vh;display:flex;align-items:center;justify-content:center;}
+.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;}
+.hero-bg canvas{position:absolute;inset:0;width:100%;height:100%;}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 60%,rgba(255,140,0,.09),transparent 65%);}
+.hero-content{position:relative;z-index:1;width:100%;max-width:660px;margin:0 auto;text-align:center;padding:0 28px;box-sizing:border-box;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,140,0,.07);border:1px solid rgba(255,140,0,.3);border-radius:50px;padding:6px 16px;font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:24px;}
+.pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:pulse 2s ease-in-out infinite;flex-shrink:0;}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,4rem);line-height:1.1;letter-spacing:-1px;margin-bottom:20px;overflow-wrap:break-word;word-wrap:break-word;max-width:100%;}
+.hero h1 em{font-style:italic;background:linear-gradient(120deg,#FF8C00,#FFD700,#FF8C00);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite;padding-right:.08em;display:inline-block;}
+.hero-sub{color:rgba(255,255,255,.62);font-size:.95rem;line-height:1.8;max-width:520px;margin:0 auto 32px;}
+.hero-cta-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:36px;}
+.btn-primary{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--orange);color:#000;padding:16px 32px;border-radius:50px;font-weight:700;font-size:.95rem;font-family:inherit;text-align:center;border:none;cursor:pointer;transition:.3s;box-shadow:0 12px 40px rgba(255,140,0,.35);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 55px rgba(255,140,0,.55);}
+.btn-primary::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-100%);transition:.4s;}
+.btn-primary:hover::after{transform:translateX(100%);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:50px;border:1.5px solid rgba(255,255,255,.14);color:rgba(255,255,255,.7);font-size:.9rem;font-weight:500;font-family:inherit;transition:.3s;background:rgba(255,255,255,.02);}
+.btn-ghost:hover{border-color:rgba(255,140,0,.45);color:var(--orange);}
+.hero-proof{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
+.proof-item{display:flex;align-items:center;gap:8px;font-size:.78rem;color:rgba(255,255,255,.5);}
+.proof-item svg{flex-shrink:0;color:var(--orange);}
+
+/* ── SOCIAL PROOF BAR ── */
+.proof-bar{background:var(--card2);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);padding:36px 20px;}
+.proof-bar-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;text-align:center;}
+.stat-num{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--orange);line-height:1;}
+.stat-label{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.4;}
+
+/* ── LEAD FORM SECTION ── */
+.form-section{padding:64px 20px;background:var(--dark);}
+.form-wrap{max-width:560px;margin:0 auto;}
+.form-header{text-align:center;margin-bottom:32px;}
+.form-header .s-label{font-size:.68rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block;}
+.form-header h2{font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,6vw,3rem);line-height:1.1;letter-spacing:-1px;margin-bottom:12px;}
+.form-header p{color:rgba(255,255,255,.55);font-size:.88rem;line-height:1.75;}
+.form-card{background:var(--card2);border:1px solid rgba(255,140,0,.15);border-radius:24px;padding:32px 24px;position:relative;overflow:hidden;}
+.form-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(255,140,0,.06),transparent 60%);pointer-events:none;}
+.form-step-indicator{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:28px;}
+.form-step-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.12);transition:.3s;}
+.form-step-dot.active{background:var(--orange);box-shadow:0 0 12px rgba(255,140,0,.5);}
+.form-step-dot.done{background:var(--green);}
+.form-step{display:none;}
+.form-step.active{display:block;}
+.step-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:6px;}
+.step-sub{font-size:.8rem;color:var(--muted2);margin-bottom:22px;}
+.field-group{display:flex;flex-direction:column;gap:14px;margin-bottom:20px;}
+.field{display:flex;flex-direction:column;gap:6px;}
+.field label{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.7);letter-spacing:.5px;text-transform:uppercase;}
+.field input,.field select,.field textarea{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:13px 16px;color:var(--white);font-family:inherit;font-size:.9rem;width:100%;transition:.25s;outline:none;-webkit-appearance:none;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:rgba(255,140,0,.5);background:rgba(255,140,0,.04);box-shadow:0 0 0 3px rgba(255,140,0,.08);}
+.field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.25);}
+.field select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+.field select option{background:var(--card2);color:var(--white);}
+.field textarea{resize:vertical;min-height:90px;line-height:1.6;}
+.field-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;}
+.field-error{font-size:.7rem;color:var(--red);display:none;}
+.field.error input,.field.error select,.field.error textarea{border-color:rgba(239,68,68,.5);}
+.field.error .field-error{display:block;}
+.badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+.badge-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:6px 14px;font-size:.75rem;font-weight:500;color:rgba(255,255,255,.65);cursor:pointer;transition:.2s;user-select:none;}
+.badge-btn:hover{border-color:rgba(255,140,0,.35);color:rgba(255,255,255,.85);}
+.badge-btn.selected{background:rgba(255,140,0,.12);border-color:rgba(255,140,0,.5);color:var(--orange);}
+.step-nav{display:flex;gap:12px;align-items:center;margin-top:4px;}
+.btn-next,.btn-submit{flex:1;background:var(--orange);color:#000;border:none;border-radius:50px;padding:15px 24px;font-weight:700;font-size:.9rem;font-family:inherit;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn-next:hover,.btn-submit:hover{transform:translateY(-1px);box-shadow:0 12px 32px rgba(255,140,0,.4);}
+.btn-back{background:transparent;border:1.5px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5);border-radius:50px;padding:15px 20px;font-family:inherit;font-size:.85rem;cursor:pointer;transition:.2s;}
+.btn-back:hover{border-color:rgba(255,255,255,.25);color:var(--white);}
+.btn-submit{width:100%;}
+.privacy-note{font-size:.68rem;color:rgba(255,255,255,.28);text-align:center;margin-top:16px;line-height:1.6;}
+.privacy-note a{color:rgba(255,140,0,.6);text-decoration:underline;text-decoration-style:dotted;}
+.privacy-note a:hover{color:var(--orange);}
+.form-success{display:none;text-align:center;padding:20px 0;}
+.form-success .success-icon{width:64px;height:64px;border-radius:50%;background:rgba(34,197,94,.12);border:2px solid rgba(34,197,94,.4);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
+.form-success h3{font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:10px;}
+.form-success p{color:var(--muted2);font-size:.88rem;line-height:1.7;}
+
+/* ── PAIN POINTS ── */
+.pain-section{padding:64px 20px;background:var(--dark);}
+.pain-inner{max-width:1200px;margin:0 auto;}
+.section-header{text-align:center;margin-bottom:40px;}
+.s-label{font-size:.68rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block;}
+.s-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,6vw,3.5rem);line-height:1.1;letter-spacing:-1px;}
+.s-body{margin-top:12px;color:var(--muted2);font-size:.92rem;line-height:1.8;}
+.pain-grid{display:flex;flex-direction:row;gap:16px;margin-top:32px;overflow-x:auto;overflow-y:visible;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:8px 4px 20px;scrollbar-width:none;cursor:grab;}
+.pain-grid::-webkit-scrollbar{display:none;}
+.pain-grid.dragging{cursor:grabbing;user-select:none;}
+.pain-card{background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px 24px;display:flex;flex-direction:column;align-items:flex-start;gap:0;transition:all .3s ease;position:relative;overflow:hidden;flex:0 0 280px;scroll-snap-align:start;}
+.pain-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--orange),#FFD700);transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+.pain-card:hover{border-color:rgba(255,140,0,.3);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.35);}
+.pain-card:hover::after{transform:scaleX(1);}
+.pain-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(255,140,0,.15),rgba(255,140,0,.05));border:1px solid rgba(255,140,0,.25);display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:.3s;}
+.pain-card:hover .pain-icon{background:linear-gradient(135deg,rgba(255,140,0,.25),rgba(255,140,0,.1));border-color:rgba(255,140,0,.5);}
+.pain-icon svg{color:var(--orange);}
+.pain-card h3{font-size:1.05rem;font-weight:700;margin-bottom:10px;line-height:1.3;letter-spacing:-.01em;}
+.pain-card p{font-size:.84rem;line-height:1.8;color:rgba(255,255,255,.58);margin:0;}
+
+/* ── HOW IT WORKS ── */
+.hiw-section{padding:64px 20px;background:var(--card);}
+.hiw-inner{max-width:700px;margin:0 auto;}
+.hiw-steps{display:flex;flex-direction:column;gap:0;margin-top:36px;position:relative;}
+.hiw-step{display:flex;gap:20px;padding-bottom:32px;position:relative;}
+.hiw-step:last-child{padding-bottom:0;}
+.hiw-step:not(:last-child)::after{content:'';position:absolute;left:19px;top:44px;bottom:0;width:2px;background:linear-gradient(to bottom,rgba(255,140,0,.3),rgba(255,140,0,.05));}
+.hiw-num{width:40px;height:40px;border-radius:50%;background:rgba(255,140,0,.1);border:1.5px solid rgba(255,140,0,.4);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--orange);flex-shrink:0;position:relative;z-index:1;}
+.hiw-text h3{font-size:1rem;font-weight:600;margin-bottom:6px;padding-top:8px;}
+.hiw-text p{font-size:.83rem;color:var(--muted2);line-height:1.65;}
+.hiw-time{display:inline-block;margin-top:8px;font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,140,0,.7);background:rgba(255,140,0,.07);border:1px solid rgba(255,140,0,.15);border-radius:50px;padding:3px 10px;}
+
+/* ── TESTIMONIALS ── */
+.testi-section{padding:64px 20px;background:var(--dark);}
+.testi-inner{max-width:900px;margin:0 auto;}
+.testi-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:36px;}
+.testi-card{background:var(--card2);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:28px 22px;position:relative;overflow:hidden;transition:.3s;}
+.testi-card:hover{border-color:rgba(255,140,0,.2);}
+.testi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,140,0,.25),transparent);}
+.testi-stars{display:flex;gap:3px;margin-bottom:14px;}
+.testi-stars svg{color:#FFD700;}
+.testi-quote{font-size:.87rem;line-height:1.75;color:rgba(255,255,255,.78);margin-bottom:18px;font-style:italic;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,rgba(255,140,0,.2),rgba(255,140,0,.05));border:1px solid rgba(255,140,0,.25);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:1rem;color:var(--orange);}
+.testi-name{font-size:.82rem;font-weight:600;}
+.testi-biz{font-size:.72rem;color:var(--muted2);}
+
+/* ── FINAL CTA ── */
+.final-cta{padding:60px 20px;background:linear-gradient(180deg,var(--dark) 0%,rgba(255,140,0,.04) 50%,var(--dark) 100%);text-align:center;border-top:1px solid rgba(255,140,0,.08);}
+.final-cta h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,7vw,3.5rem);line-height:1.08;letter-spacing:-1px;margin-bottom:16px;}
+.final-cta h2 em{font-style:italic;background:linear-gradient(120deg,#FF8C00,#FFD700,#FF8C00);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite;}
+.final-cta p{color:rgba(255,255,255,.55);font-size:.92rem;line-height:1.8;max-width:460px;margin:0 auto 32px;}
+.final-btns{display:flex;flex-direction:column;align-items:center;gap:12px;}
+
+/* ── FOOTER ── */
+footer{background:var(--card);border-top:1px solid rgba(255,255,255,.06);padding:32px 20px;text-align:center;}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:12px;}
+.footer-logo span{color:var(--orange);}
+.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px;}
+.footer-links a{font-size:.72rem;color:rgba(255,255,255,.35);transition:.2s;}
+.footer-links a:hover{color:rgba(255,140,0,.7);}
+.footer-copy{font-size:.68rem;color:rgba(255,255,255,.22);}
+
+/* ── MODALS ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px);}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:24px;max-width:600px;width:100%;max-height:85vh;overflow-y:auto;position:relative;}
+.modal-header{padding:28px 28px 0;position:sticky;top:0;background:var(--card2);z-index:1;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.07);}
+.modal-header h2{font-family:'DM Serif Display',serif;font-size:1.5rem;margin-bottom:4px;}
+.modal-header p{font-size:.75rem;color:var(--muted2);}
+.modal-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.06);border:none;color:rgba(255,255,255,.6);width:32px;height:32px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;}
+.modal-close:hover{background:rgba(255,255,255,.1);color:var(--white);}
+.modal-body{padding:24px 28px 32px;}
+.modal-body h3{font-size:.9rem;font-weight:700;color:var(--orange);margin:20px 0 8px;text-transform:uppercase;letter-spacing:.5px;}
+.modal-body h3:first-child{margin-top:0;}
+.modal-body p{font-size:.82rem;line-height:1.78;color:rgba(255,255,255,.62);margin-bottom:12px;}
+.modal-body ul{padding-left:18px;margin-bottom:12px;}
+.modal-body ul li{font-size:.82rem;line-height:1.78;color:rgba(255,255,255,.62);margin-bottom:6px;}
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ── TABLET ≥ 640px ── */
+@media(min-width:640px){
+  nav{height:64px;padding:0 28px;}
+  .nav-phone{display:flex;align-items:center;gap:6px;}
+  .nav-cta{font-size:.72rem;padding:9px 18px;}
+  .hero{padding:80px 32px 60px;}
+  .proof-bar-inner{gap:32px;}
+  .stat-num{font-size:2.8rem;}
+  .form-section{padding:64px 32px;}
+  .form-card{padding:40px 36px;}
+  .field-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+  .pain-grid{gap:20px;}
+  .pain-card{flex:0 0 320px;}
+  .testi-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+  .hiw-section{padding:64px 32px;}
+  .final-cta{padding:80px 32px;}
+  .final-btns{flex-direction:row;justify-content:center;}
+  footer{padding:40px 32px;}
+}
+
+/* ── DESKTOP ≥ 1024px ── */
+@media(min-width:1024px){
+  nav{height:72px;padding:0 52px;}
+  .nav-logo{font-size:1.5rem;}
+  .nav-phone{font-size:.8rem;}
+  .nav-cta{font-size:.8rem;padding:10px 24px;}
+  .hero{padding:100px 52px 80px;min-height:100vh;}
+  .hero h1{font-size:clamp(2.8rem,4.5vw,4.2rem);}
+  .hero-cta-wrap{flex-direction:row;justify-content:center;}
+  .proof-bar{padding:40px 52px;}
+  .proof-bar-inner{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .form-section{padding:80px 52px;}
+  .pain-section{padding:80px 40px;}
+  .pain-grid{display:flex;overflow-x:auto;gap:24px;cursor:grab;}
+  .pain-card{flex:0 0 360px;scroll-snap-align:start;}
+  .hiw-section{padding:80px 52px;}
+  .testi-section{padding:80px 52px;}
+  .testi-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+  .final-cta{padding:100px 52px;}
+  footer{padding:48px 64px;display:flex;align-items:center;justify-content:space-between;}
+  .footer-logo{margin-bottom:0;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <a href="growwise.html" class="nav-logo"><span>Grow</span>Wise</a>
+  <div class="nav-right">
+    <a href="#lead-form" class="nav-cta">Book Free Call</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg">
+    <canvas id="geo-canvas"></canvas>
+    <div class="hero-glow"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge reveal"><span class="pulse-dot"></span>Home Service Business Owners</div>
+    <h1 class="reveal">You Do Great Work.<br><em>Now Let's Make Sure<br>People Find You.</em></h1>
+    <p class="hero-sub reveal">More calls. More booked jobs. Less chasing. GrowWise builds the system that grows your business while you're on the job.</p>
+    <div class="hero-cta-wrap reveal">
+      <a href="#lead-form" class="btn-primary">Start Growing Today</a>
+    </div>
+    <div class="hero-proof reveal">
+      <span class="proof-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        No contracts
+      </span>
+      <span class="proof-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Setup in under 3 weeks
+      </span>
+      <span class="proof-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Free 30-min call
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOCIAL PROOF BAR ── -->
+<div class="proof-bar reveal">
+  <div class="proof-bar-inner">
+    <div>
+      <div class="stat-num">3×</div>
+      <div class="stat-label">More leads with targeted Meta Ads</div>
+    </div>
+    <div>
+      <div class="stat-num">87%</div>
+      <div class="stat-label">Of buyers go with the first business that responds</div>
+    </div>
+    <div>
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Automated follow-up — even while you sleep</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PAIN POINTS ── -->
+<section class="pain-section">
+  <div class="pain-inner">
+    <div class="section-header reveal">
+      <span class="s-label">Sound Familiar?</span>
+      <h2 class="s-title">Your Business Is Ready<br><em style="font-style:italic;background:linear-gradient(120deg,#FF8C00,#FFD700,#FF8C00);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite;padding-bottom:.1em;padding-right:.05em;display:inline-block;">To Stop Playing Small</em></h2>
+      <p class="s-body">These are the exact problems killing your revenue right now. GrowWise solves every one — faster response, more booked jobs, zero leads left behind.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card reveal">
+        <div class="pain-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></div>
+        <h3>Leads disappearing after one missed call</h3>
+        <p>Every missed call is a job going to your competitor. GrowWise instantly texts every missed caller back — so you capture the lead even when you can't pick up.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></div>
+        <h3>Losing searches to weaker competitors</h3>
+        <p>Right now, people searching for your service are finding someone else. A GrowWise website puts you at the top and turns that traffic into booked calls.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></div>
+        <h3>Quotes going cold with no follow-up</h3>
+        <p>Most quotes die because no one follows up. GrowWise sends automatic follow-ups that bring cold leads back — and books the job without you lifting a finger.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></div>
+        <h3>Not enough 5-star reviews to stand out</h3>
+        <p>More 5-star reviews means more trust, more clicks, and more booked jobs. GrowWise requests reviews automatically after every job — while the experience is still fresh.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></div>
+        <h3>A website that looks good but does nothing</h3>
+        <p>A website that doesn't convert is just an expensive brochure. GrowWise builds you a site engineered to turn visitors into booked calls — around the clock.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></div>
+        <h3>No visibility into your pipeline</h3>
+        <p>Without a CRM you're running your business blind. GrowWise gives you a live pipeline — every lead tracked, every follow-up logged, every opportunity visible.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></div>
+        <h3>No Meta Ads bringing in new leads</h3>
+        <p>Referrals are unpredictable. Meta Ads bring in a steady stream of new customers every single day. GrowWise builds and manages your campaigns so you always have fresh leads coming in.</p>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:rgba(255,140,0,.5);"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+      <span>Scroll to see more</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="hiw-section">
+  <div class="hiw-inner">
+    <div class="section-header reveal">
+      <span class="s-label">The GrowWise Process</span>
+      <h2 class="s-title">From Call to <em style="font-style:italic;">Running</em> in 3 Steps</h2>
+      <p class="s-body">Most clients are live in under 3 weeks. Here's exactly how we get you from zero to a full growth system — fast.</p>
+    </div>
+    <div class="hiw-steps">
+      <div class="hiw-step reveal">
+        <div class="hiw-num">01</div>
+        <div class="hiw-text">
+          <h3>Free 30-Minute Consultation</h3>
+          <p>We identify exactly where you're losing leads and revenue right now. You'll leave with a clear, custom plan — and zero obligation to move forward.</p>
+          <span class="hiw-time">Day 1</span>
+        </div>
+      </div>
+      <div class="hiw-step reveal">
+        <div class="hiw-num">02</div>
+        <div class="hiw-text">
+          <h3>We Build Everything For You</h3>
+          <p>We build your website, CRM, Meta Ads, missed-call text-back, review automation, and follow-up sequences. Everything tested and ready — you don't touch a thing.</p>
+          <span class="hiw-time">Week 1–2</span>
+        </div>
+      </div>
+      <div class="hiw-step reveal">
+        <div class="hiw-num">03</div>
+        <div class="hiw-text">
+          <h3>Go Live — Then Keep Growing</h3>
+          <p>We walk you through everything, flip the switch, and your system starts working immediately. We stay on monthly to optimize ads, monitor performance, and keep your pipeline full.</p>
+          <span class="hiw-time">Week 3 → Ongoing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LEAD FORM ── -->
+<section class="form-section" id="lead-form">
+  <div class="form-wrap">
+    <div class="form-header reveal">
+      <span class="s-label">GrowWise — Start Today</span>
+      <h2>Book Your Free<br><em style="font-style:italic;background:linear-gradient(120deg,#FF8C00,#FFD700,#FF8C00);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite;">Consultation</em></h2>
+      <p>Takes 90 seconds to fill out. We'll reach out within one business day to lock in your free consultation — no pitch, just a real plan for your business.</p>
+    </div>
+    <div class="form-card reveal">
+      <!-- Step indicators -->
+      <div class="form-step-indicator">
+        <div class="form-step-dot active" id="dot-1"></div>
+        <div class="form-step-dot" id="dot-2"></div>
+        <div class="form-step-dot" id="dot-3"></div>
+      </div>
+
+      <!-- Step 1: Your Info -->
+      <div class="form-step active" id="step-1">
+        <div class="step-title">Your Details</div>
+        <div class="step-sub">Step 1 of 3 — How should we reach you?</div>
+        <div class="field-group">
+          <div class="field-row">
+            <div class="field" id="field-fname">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" placeholder="John" autocomplete="given-name">
+              <span class="field-error">First name is required</span>
+            </div>
+            <div class="field" id="field-lname">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" placeholder="Smith" autocomplete="family-name">
+              <span class="field-error">Last name is required</span>
+            </div>
+          </div>
+          <div class="field" id="field-email">
+            <label for="email">Business Email</label>
+            <input type="email" id="email" placeholder="john@smithsplumbing.com" autocomplete="email">
+            <span class="field-error">A valid email is required</span>
+          </div>
+          <div class="field" id="field-phone">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="(850) 000-0000" autocomplete="tel">
+            <span class="field-error">Phone number is required</span>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn-next" onclick="nextStep(1)">
+            Continue
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Business Info -->
+      <div class="form-step" id="step-2">
+        <div class="step-title">Your Business</div>
+        <div class="step-sub">Step 2 of 3 — What type of business do you run?</div>
+        <div class="field-group">
+          <div class="field" id="field-biz">
+            <label for="biz">Business Name</label>
+            <input type="text" id="biz" placeholder="Smith's Plumbing LLC">
+            <span class="field-error">Business name is required</span>
+          </div>
+          <div class="field" id="field-industry">
+            <label for="industry">Industry</label>
+            <select id="industry">
+              <option value="" disabled selected>Select your industry</option>
+              <option value="trades">Contractors &amp; Trades</option>
+              <option value="hvac">HVAC &amp; Plumbing</option>
+              <option value="salon">Salons &amp; Spas</option>
+              <option value="medical">Medical &amp; Dental</option>
+              <option value="fitness">Fitness &amp; Wellness</option>
+              <option value="realestate">Real Estate</option>
+              <option value="restaurant">Restaurant &amp; Cafe</option>
+              <option value="coaching">Coaching &amp; Consulting</option>
+              <option value="other">Other</option>
+            </select>
+            <span class="field-error">Please select your industry</span>
+          </div>
+          <div class="field">
+            <label>What's your biggest challenge right now?</label>
+            <div class="badge-row" id="challenge-badges">
+              <span class="badge-btn" data-val="missed-calls">📞 Missed calls</span>
+              <span class="badge-btn" data-val="no-reviews">⭐ Not enough reviews</span>
+              <span class="badge-btn" data-val="bad-website">💻 Outdated website</span>
+              <span class="badge-btn" data-val="no-followup">📧 No follow-up system</span>
+              <span class="badge-btn" data-val="no-crm">🗂️ No CRM / tracking</span>
+              <span class="badge-btn" data-val="all">All of the above</span>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn-back" onclick="prevStep(2)">Back</button>
+          <button class="btn-next" onclick="nextStep(2)">
+            Continue
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: Final -->
+      <div class="form-step" id="step-3">
+        <div class="step-title">Last Step</div>
+        <div class="step-sub">Step 3 of 3 — Anything we should know before we call?</div>
+        <div class="field-group">
+          <div class="field">
+            <label for="revenue">Approximate Monthly Revenue</label>
+            <select id="revenue">
+              <option value="" disabled selected>Select a range</option>
+              <option value="under10k">Under $10k/mo</option>
+              <option value="10-25k">$10k – $25k/mo</option>
+              <option value="25-50k">$25k – $50k/mo</option>
+              <option value="50-100k">$50k – $100k/mo</option>
+              <option value="100k+">$100k+/mo</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="msg">Anything else we should know? <span style="color:var(--muted2);font-weight:400;">(optional)</span></label>
+            <textarea id="msg" placeholder="Tell us your biggest challenge or anything specific you'd like us to look at…"></textarea>
+          </div>
+          <div class="field">
+            <label>How did you hear about us?</label>
+            <select id="source">
+              <option value="" disabled selected>Select one</option>
+              <option value="google">Google Search</option>
+              <option value="referral">Referral / Word of mouth</option>
+              <option value="social">Social Media</option>
+              <option value="ad">Online Ad</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="step-nav" style="flex-direction:column;gap:0;">
+          <div style="display:flex;gap:12px;margin-bottom:14px;">
+            <button class="btn-back" onclick="prevStep(3)">Back</button>
+            <button class="btn-submit" id="submit-btn" onclick="handleSubmit()">
+              Start Growing Today
+            </button>
+          </div>
+          </div>
+      </div>
+
+      <!-- Success State -->
+      <div class="form-success" id="form-success">
+        <div class="success-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>You're on the list!</h3>
+        <p>We'll reach out within one business day to schedule your free 30-minute discovery call. Check your email — we're sending over a quick confirmation now.</p>
+        <p style="margin-top:14px;">In the meantime, feel free to call us directly at.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testi-section">
+  <div class="testi-inner">
+    <div class="section-header reveal">
+      <span class="s-label">Real Results</span>
+      <h2 class="s-title">What Happens After<br>The Call</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-quote">"I was losing maybe 10–15 leads a month to voicemail and never knew it. Within two weeks of going live, the text-back system alone booked 4 new jobs. I wish I'd done this years ago."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div>
+            <div class="testi-name">Mike R.</div>
+            <div class="testi-biz">HVAC Contractor — Fort Walton Beach</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-quote">"Our Google reviews went from 14 to 47 in six weeks. The automated review request goes out right after we finish a job and the timing is perfect. Clients are actually happy to leave them."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div>
+            <div class="testi-name">Sarah K.</div>
+            <div class="testi-biz">Salon Owner — Destin</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-quote">"The whole system was live in 16 days. Website, CRM, automations — everything. The GrowWise team genuinely cares about whether your business grows. Not just deliverables."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">T</div>
+          <div>
+            <div class="testi-name">Tom D.</div>
+            <div class="testi-biz">General Contractor — Pensacola</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="testi-quote">"Before GrowWise I had no idea where my leads were going. Now I can see every contact in the CRM, every follow-up that went out. I actually feel in control of my business for the first time."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">J</div>
+          <div>
+            <div class="testi-name">Jamie L.</div>
+            <div class="testi-biz">Landscaping Company — Destin</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="final-cta">
+  <span class="s-label reveal" style="display:block;margin-bottom:16px;">Your Next Step</span>
+  <h2 class="reveal">More Leads.<br>More Revenue.<br><em>Less Chasing.</em></h2>
+  <p class="reveal">Get a free 30-minute consultation. We'll show you exactly how many leads you're losing and what a full GrowWise system would cost to fix it.</p>
+  <div class="final-btns reveal">
+    <a href="#lead-form" class="btn-primary" style="font-size:1rem;padding:18px 40px;">
+      Book My Free Audit
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo"><span>Grow</span>Wise</div>
+  <div class="footer-links">
+    <a href="growwise.html">Home</a>
+    <a href="howitworks.html">How It Works</a>
+    <a href="services.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="#" onclick="openModal('privacy');return false;">Privacy Policy</a>
+    <a href="#" onclick="openModal('terms');return false;">Terms of Service</a>
+  </div>
+  <div class="footer-copy">&copy; 2025 GrowWise. All rights reserved..</div>
+</footer>
+
+<!-- ── PRIVACY POLICY MODAL ── -->
+<div class="modal-overlay" id="modal-privacy" onclick="closeModalOnBg(event,'privacy')">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Privacy Policy</h2>
+      <p>Last updated: January 1, 2025</p>
+      <button class="modal-close" onclick="closeModal('privacy')">✕</button>
+    </div>
+    <div class="modal-body">
+      <h3>1. Information We Collect</h3>
+      <p>When you submit our contact form or book a discovery call, we collect your name, email address, phone number, and business information you provide. We may also collect information automatically when you visit our website, including your IP address, browser type, pages visited, and time spent on pages.</p>
+
+      <h3>2. How We Use Your Information</h3>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Contact you to schedule and conduct your free discovery call</li>
+        <li>Send you information about GrowWise services relevant to your inquiry</li>
+        <li>Improve our website and services</li>
+        <li>Comply with legal obligations</li>
+      </ul>
+      <p>We will never sell, rent, or share your personal information with third parties for their marketing purposes.</p>
+
+      <h3>3. Communications</h3>
+      <p>By submitting your information, you consent to receive communications from GrowWise by phone, email, or SMS text message regarding your inquiry and our services. You may opt out of email communications at any time by clicking the unsubscribe link in any email. To opt out of SMS messages, reply STOP to any text message.</p>
+
+      <h3>4. Data Retention</h3>
+      <p>We retain your personal information for as long as necessary to provide our services and fulfill the purposes described in this policy, unless a longer retention period is required by law. You may request deletion of your personal information at any time by contacting us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="573f323b3b381730253820203e24327934383a">[email&#160;protected]</a>.</p>
+
+      <h3>5. Cookies</h3>
+      <p>Our website uses cookies to enhance your browsing experience, analyze site traffic, and understand where visitors come from. You can control cookies through your browser settings. Disabling cookies may limit some features of our website.</p>
+
+      <h3>6. Third-Party Services</h3>
+      <p>We use trusted third-party services to operate our website and business, including Go High Level (CRM), Google Analytics (analytics), and standard email service providers. These services have their own privacy policies and we encourage you to review them.</p>
+
+      <h3>7. Security</h3>
+      <p>We implement industry-standard security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the internet is 100% secure.</p>
+
+      <h3>8. Your Rights</h3>
+      <p>You have the right to access, correct, or request deletion of your personal information. To exercise these rights, contact us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6109040d0d0e2106130e16160812044f020e0c">[email&#160;protected]</a> or call (850) 123-4567. We will respond to your request within 30 days.</p>
+
+      <h3>9. Contact Us</h3>
+      <p>If you have questions about this Privacy Policy, contact us at:<br><br>GrowWise<br>Destin, FL<br>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3a525f5656557a5d48554d4d53495f14595557">[email&#160;protected]</a><br>Phone: (850) 123-4567</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── TERMS OF SERVICE MODAL ── -->
+<div class="modal-overlay" id="modal-terms" onclick="closeModalOnBg(event,'terms')">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Terms of Service</h2>
+      <p>Last updated: January 1, 2025</p>
+      <button class="modal-close" onclick="closeModal('terms')">✕</button>
+    </div>
+    <div class="modal-body">
+      <h3>1. Acceptance of Terms</h3>
+      <p>By accessing this website or submitting your information to GrowWise, you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please do not use our website or services.</p>
+
+      <h3>2. Services</h3>
+      <p>GrowWise provides digital marketing, website development, CRM setup, marketing automation, and related business growth services for small businesses. The specific services provided to each client are governed by a separate service agreement.</p>
+
+      <h3>3. Free Discovery Call</h3>
+      <p>The free 30-minute discovery call is provided at no charge and carries no obligation to purchase services. During the call, GrowWise will assess your business needs and provide recommendations. Any subsequent service engagement requires a signed service agreement and agreed-upon payment terms.</p>
+
+      <h3>4. No Guarantees</h3>
+      <p>While GrowWise works hard to deliver measurable results for every client, we cannot guarantee specific revenue outcomes, lead volumes, or business results. Results vary based on your industry, market, competition, and other factors outside our control. All case studies and testimonials reflect individual results and are not guarantees of future performance.</p>
+
+      <h3>5. Intellectual Property</h3>
+      <p>All content on this website, including text, graphics, logos, and software, is the property of GrowWise and protected by applicable intellectual property laws. Deliverables created for clients (websites, marketing materials) become the client's property upon final payment unless otherwise agreed in writing.</p>
+
+      <h3>6. Month-to-Month Services</h3>
+      <p>GrowWise offers month-to-month service agreements with no long-term contracts required. Either party may terminate the agreement with 30 days written notice. Setup and onboarding fees are non-refundable once work has commenced.</p>
+
+      <h3>7. Client Responsibilities</h3>
+      <p>Clients are responsible for providing accurate business information, timely feedback and approvals, access to necessary accounts and platforms, and compliance with all applicable laws in their operation of the systems we build.</p>
+
+      <h3>8. Limitation of Liability</h3>
+      <p>GrowWise's total liability for any claim arising from our services shall not exceed the total amount paid by the client in the three months preceding the claim. GrowWise is not liable for indirect, incidental, or consequential damages.</p>
+
+      <h3>9. Governing Law</h3>
+      <p>These terms are governed by the laws of the State of Florida. Any disputes shall be resolved through binding arbitration in Okaloosa County, Florida, except for claims that qualify for small claims court.</p>
+
+      <h3>10. Changes to Terms</h3>
+      <p>GrowWise reserves the right to update these terms at any time. Continued use of our website or services after changes are posted constitutes acceptance of the updated terms.</p>
+
+      <h3>11. Contact</h3>
+      <p>Questions about these Terms of Service? Contact us at:<br><br>GrowWise<br>Destin, FL<br>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9af2fff6f6f5dafde8f5ededf3e9ffb4f9f5f7">[email&#160;protected]</a><br>Phone: (850) 123-4567</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── NAV SCROLL ──
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 30);
+});
+
+// ── CUSTOM CURSOR ──
+(function() {
+  var cur = document.getElementById('cursor');
+  var ring = document.getElementById('cursor-ring');
+  if (!cur || !ring) return;
+  var mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; });
+  (function loop() {
+    cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+    rx += (mx - rx) * .11; ry += (my - ry) * .11;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a,button,.pain-card,.testi-card,.badge-btn').forEach(function(el) {
+    el.addEventListener('mouseenter', function() {
+      cur.style.width = '20px'; cur.style.height = '20px';
+      ring.style.width = '54px'; ring.style.height = '54px';
+      ring.style.borderColor = 'rgba(255,140,0,.8)';
+    });
+    el.addEventListener('mouseleave', function() {
+      cur.style.width = '12px'; cur.style.height = '12px';
+      ring.style.width = '36px'; ring.style.height = '36px';
+      ring.style.borderColor = 'rgba(255,140,0,.5)';
+    });
+  });
+})();
+
+// ── CANVAS ANIMATION ──
+(function() {
+  var canvas = document.getElementById('geo-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, nodes = [], mouse = { x: -999, y: -999 };
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  document.addEventListener('mousemove', function(e) {
+    var rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+
+  var NODE_COUNT = 55;
+  for (var i = 0; i < NODE_COUNT; i++) {
+    nodes.push({
+      x: Math.random(), y: Math.random(),
+      vx: (Math.random() - .5) * .0003,
+      vy: (Math.random() - .5) * .0003,
+      r: Math.random() * 1.5 + .5
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    nodes.forEach(function(n) {
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0) n.x = 1; if (n.x > 1) n.x = 0;
+      if (n.y < 0) n.y = 1; if (n.y > 1) n.y = 0;
+    });
+
+    var CONN_DIST = 0.18;
+    for (var i = 0; i < nodes.length; i++) {
+      for (var j = i + 1; j < nodes.length; j++) {
+        var dx = nodes[i].x - nodes[j].x;
+        var dy = nodes[i].y - nodes[j].y;
+        var dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < CONN_DIST) {
+          var alpha = (1 - dist / CONN_DIST) * 0.18;
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(255,140,0,' + alpha + ')';
+          ctx.lineWidth = .6;
+          ctx.moveTo(nodes[i].x * W, nodes[i].y * H);
+          ctx.lineTo(nodes[j].x * W, nodes[j].y * H);
+          ctx.stroke();
+        }
+      }
+    }
+
+    nodes.forEach(function(n) {
+      var px = n.x * W, py = n.y * H;
+      var mdx = px - mouse.x, mdy = py - mouse.y;
+      var mdist = Math.sqrt(mdx*mdx + mdy*mdy);
+      var glow = mdist < 120 ? (1 - mdist/120) * .7 : .2;
+      ctx.beginPath();
+      ctx.arc(px, py, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,140,0,' + glow + ')';
+      ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── REVEAL ON SCROLL ──
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      var sibs = [].slice.call(e.target.parentElement.querySelectorAll('.reveal'));
+      setTimeout(function() { e.target.classList.add('in'); }, sibs.indexOf(e.target) * 80);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: .08 });
+document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+
+// ── BADGE SELECTION ──
+document.querySelectorAll('.badge-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    btn.classList.toggle('selected');
+  });
+});
+
+// ── MULTI-STEP FORM ──
+var currentStep = 1;
+
+function showStep(step) {
+  [1, 2, 3].forEach(function(s) {
+    var el = document.getElementById('step-' + s);
+    var dot = document.getElementById('dot-' + s);
+    if (el) el.classList.toggle('active', s === step);
+    if (dot) {
+      dot.classList.remove('active', 'done');
+      if (s === step) dot.classList.add('active');
+      if (s < step) dot.classList.add('done');
+    }
+  });
+  currentStep = step;
+}
+
+function validateStep(step) {
+  var valid = true;
+  if (step === 1) {
+    var fname = document.getElementById('fname');
+    var lname = document.getElementById('lname');
+    var email = document.getElementById('email');
+    var phone = document.getElementById('phone');
+    [
+      { el: fname, fieldId: 'field-fname', check: function(v) { return v.trim().length > 0; } },
+      { el: lname, fieldId: 'field-lname', check: function(v) { return v.trim().length > 0; } },
+      { el: email, fieldId: 'field-email', check: function(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); } },
+      { el: phone, fieldId: 'field-phone', check: function(v) { return v.trim().length >= 7; } }
+    ].forEach(function(f) {
+      var field = document.getElementById(f.fieldId);
+      if (!f.check(f.el.value)) {
+        if (field) field.classList.add('error');
+        valid = false;
+      } else {
+        if (field) field.classList.remove('error');
+      }
+    });
+  }
+  if (step === 2) {
+    var biz = document.getElementById('biz');
+    var industry = document.getElementById('industry');
+    var bizField = document.getElementById('field-biz');
+    var indField = document.getElementById('field-industry');
+    if (!biz.value.trim()) { if (bizField) bizField.classList.add('error'); valid = false; }
+    else { if (bizField) bizField.classList.remove('error'); }
+    if (!industry.value) { if (indField) indField.classList.add('error'); valid = false; }
+    else { if (indField) indField.classList.remove('error'); }
+  }
+  return valid;
+}
+
+function nextStep(step) {
+  if (!validateStep(step)) return;
+  if (step < 3) showStep(step + 1);
+}
+
+function prevStep(step) {
+  if (step > 1) showStep(step - 1);
+}
+
+function handleSubmit() {
+  if (!validateStep(3)) return;
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation:spin 1s linear infinite"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg> Sending…';
+
+  var data = {
+    name: ((document.getElementById('fname')||{}).value||'') + ' ' + ((document.getElementById('lname')||{}).value||''),
+    email: (document.getElementById('email')||{}).value||'',
+    phone: (document.getElementById('phone')||{}).value||'',
+    business: (document.getElementById('biz')||{}).value||'',
+    industry: (document.getElementById('industry')||{}).value||'',
+    revenue: (document.getElementById('revenue')||{}).value||'',
+    goals: Array.from(document.querySelectorAll('.badge-btn.selected')).map(function(b){return b.textContent.trim();}).join(', ')
+  };
+  fetch('https://formspree.io/f/xvzbyvzg', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify(data)
+  }).then(function(res) {
+    if (res.ok) { showFormSuccess(); }
+    else { throw new Error('Failed'); }
+  }).catch(function() {
+    btn.disabled = false;
+    btn.innerHTML = 'Start Growing Today';
+    alert('Something went wrong. Please email growwisebusiness@gmail.com');
+  });
+}
+
+function showFormSuccess() {
+  [1,2,3].forEach(function(s){var el=document.getElementById('step-'+s);if(el)el.style.display='none';});
+  document.querySelector('.form-step-indicator').style.display='none';
+  document.getElementById('form-success').style.display='block';
+  [1,2,3].forEach(function(s){var dot=document.getElementById('dot-'+s);if(dot){dot.classList.remove('active');dot.classList.add('done');}});
+}
+
+// ── MODALS ──
+function openModal(type) {
+  document.getElementById('modal-' + type).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(type) {
+  document.getElementById('modal-' + type).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOnBg(e, type) {
+  if (e.target === document.getElementById('modal-' + type)) closeModal(type);
+}
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href="#lead-form"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    var target = document.getElementById('lead-form');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ── PAIN SCROLL DRAG ──
+(function(){
+  var el=document.querySelector('.pain-grid');
+  if(!el) return;
+  var isDown=false,startX,scrollLeft;
+  el.addEventListener('mousedown',function(e){isDown=true;el.classList.add('dragging');startX=e.pageX-el.offsetLeft;scrollLeft=el.scrollLeft;});
+  el.addEventListener('mouseleave',function(){isDown=false;el.classList.remove('dragging');});
+  el.addEventListener('mouseup',function(){isDown=false;el.classList.remove('dragging');});
+  el.addEventListener('mousemove',function(e){if(!isDown)return;e.preventDefault();var x=e.pageX-el.offsetLeft;el.scrollLeft=scrollLeft-(x-startX)*1.5;});
+})();
+</script>
+</body>
+</html>
